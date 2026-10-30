@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 9 - Modo Oscuro</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, dark *));
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900 sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+
+    <section class="rounded-xl bg-white p-6 text-slate-900 shadow-sm dark:bg-slate-900 dark:text-white">
+      <h1 class="text-2xl font-bold">Tema de la interfaz</h1>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">
+        El botón cambia los colores de esta página activando o desactivando la clase dark en el elemento HTML.
+      </p>
+      <button id="tema" type="button" aria-pressed="false"
+        class="mt-5 rounded-lg bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+        Activar modo oscuro
+      </button>
+    </section>
+
+    <!-- Reto: Tarjeta secundaria -->
+    <section class="mt-6 rounded-xl border border-slate-300 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900/50">
+      <h2 class="text-xl font-bold">Panel Secundario</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-400">Esta tarjeta responde automáticamente a la variante dark:.</p>
+    </section>
+
+    <script>
+      const control = document.querySelector('#tema');
+      control.addEventListener('click', () => {
+        const oscuro = document.documentElement.classList.toggle('dark');
+        control.setAttribute('aria-pressed', String(oscuro));
+        control.textContent = oscuro ? 'Activar modo claro' : 'Activar modo oscuro';
+      });
+    </script>
+  </main>
+</body>
+</html>

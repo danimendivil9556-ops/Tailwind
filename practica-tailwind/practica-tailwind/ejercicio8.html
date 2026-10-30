@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 8 - Tabla Adaptable</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, dark *));
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900 sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+
+    <div class="overflow-x-auto rounded-lg border border-slate-300 dark:border-slate-700">
+      <table class="min-w-[600px] w-full border-collapse bg-white dark:bg-slate-900">
+        <caption class="p-4 text-left font-bold text-lg dark:text-slate-100">Avance de prácticas</caption>
+        <thead class="bg-slate-200 text-left dark:bg-slate-800">
+          <tr>
+            <th scope="col" class="p-3">Estudiante</th>
+            <th scope="col" class="p-3">Práctica</th>
+            <th scope="col" class="p-3">Fecha</th>
+            <th scope="col" class="p-3">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+            <th scope="row" class="p-3 text-left font-medium">Ana</th>
+            <td class="p-3">Grid</td>
+            <td class="p-3">10/10/2026</td>
+            <td class="p-3 font-semibold text-green-700 dark:text-green-400">Entregada</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+            <th scope="row" class="p-3 text-left font-medium">Luis</th>
+            <td class="p-3">Formulario</td>
+            <td class="p-3">12/10/2026</td>
+            <td class="p-3 font-semibold text-amber-700 dark:text-amber-400">Pendiente</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+            <th scope="row" class="p-3 text-left font-medium">Daniel</th>
+            <td class="p-3">Modo Oscuro</td>
+            <td class="p-3">15/10/2026</td>
+            <td class="p-3 font-semibold text-green-700 dark:text-green-400">Entregada</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/50">
+            <th scope="row" class="p-3 text-left font-medium">Sofía</th>
+            <td class="p-3">Menú Móvil</td>
+            <td class="p-3">18/10/2026</td>
+            <td class="p-3 font-semibold text-green-700 dark:text-green-400">Entregada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

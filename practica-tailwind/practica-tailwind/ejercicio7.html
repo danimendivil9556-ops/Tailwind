@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7 - Menú Móvil</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, dark *));
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900 sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+
+    <nav aria-label="Principal" class="rounded-xl bg-white p-4 dark:bg-slate-900">
+      <div class="flex items-center justify-between">
+        <a href="#inicio" class="text-xl font-bold">Mi sitio</a>
+        <button id="menuBtn" type="button" aria-controls="menu" aria-expanded="false"
+          class="rounded-lg border border-slate-400 px-3 py-2 md:hidden">Menú</button>
+      </div>
+      <div id="menu" class="mt-4 hidden flex-col gap-3 md:flex md:flex-row">
+        <a href="#inicio" class="hover:underline nav-link">Inicio</a>
+        <a href="#cursos" class="hover:underline nav-link">Cursos</a>
+      </div>
+    </nav>
+
+    <section id="inicio" class="mt-8"><h1 class="text-2xl font-bold">Inicio</h1></section>
+    <section id="cursos" class="mt-8"><h2 class="text-2xl font-bold">Cursos</h2></section>
+
+    <script>
+      const boton = document.querySelector('#menuBtn');
+      const menu = document.querySelector('#menu');
+      const enlaces = document.querySelectorAll('.nav-link');
+
+      function alternarMenu(abrir) {
+        boton.setAttribute('aria-expanded', String(abrir));
+        menu.classList.toggle('hidden', !abrir);
+        menu.classList.toggle('flex', abrir);
+      }
+
+      boton.addEventListener('click', () => {
+        const abierto = boton.getAttribute('aria-expanded') !== 'true';
+        alternarMenu(abierto);
+      });
+
+      enlaces.forEach(enlace => {
+        enlace.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            alternarMenu(false);
+          }
+        });
+      });
+    </script>
+  </main>
+</body>
+</html>

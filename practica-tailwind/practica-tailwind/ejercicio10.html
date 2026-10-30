@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 10 - Página Integradora Completa</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, dark *));
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900 sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+
+    <!-- Encabezado con Menú Móvil -->
+    <header class="rounded-xl bg-white p-4 shadow-sm dark:bg-slate-900">
+      <div class="flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-blue-700 dark:text-blue-400">Aula Web</a>
+        
+        <div class="flex items-center gap-3">
+          <!-- Botón de Modo Oscuro -->
+          <button id="temaBtn" type="button" aria-pressed="false"
+            class="rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-100">
+            Modo Oscuro
+          </button>
+          
+          <!-- Botón Menú Móvil -->
+          <button id="menuBtn" type="button" aria-controls="menu" aria-expanded="false"
+            class="rounded-lg border border-slate-300 px-3 py-2 md:hidden dark:border-slate-700">
+            Menú
+          </button>
+        </div>
+      </div>
+
+      <nav id="menu" class="mt-4 hidden flex-col gap-3 border-t border-slate-200 pt-3 md:flex md:flex-row md:border-none md:pt-0 dark:border-slate-800">
+        <a href="#cursos" class="hover:text-blue-700 nav-link dark:hover:text-blue-400">Cursos</a>
+        <a href="#taller" class="hover:text-blue-700 nav-link dark:hover:text-blue-400">Inscripción</a>
+        <a href="#contacto" class="hover:text-blue-700 nav-link dark:hover:text-blue-400">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- Sección Hero / Bienvenida -->
+    <section class="py-10 text-center md:text-left">
+      <h1 class="text-3xl font-bold md:text-5xl">Aprende desarrollo web profesional</h1>
+      <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl">
+        Domina HTML5, clases de utilidad con Tailwind CSS 4 y lógica interactiva con JavaScript.
+      </p>
+    </section>
+
+    <!-- Catálogo de Cursos (Grid) -->
+    <section id="cursos" aria-label="Cursos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">HTML5 Semántico</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Construye estructuras accesibles y estándares.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">Tailwind CSS 4</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Diseña interfaces rápidas sin salir de tu HTML.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">JavaScript ES6+</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Programa interacción y consumo de APIs.</p>
+      </article>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <section id="taller" class="mt-12 rounded-xl bg-white p-6 shadow-sm md:p-8 dark:bg-slate-900">
+      <h2 class="text-2xl font-bold">Inscríbete al taller</h2>
+      <form id="formularioIntegrador" class="mt-4 grid gap-4 md:grid-cols-2">
+        <div>
+          <label for="nombreInt" class="block font-medium">Nombre</label>
+          <input id="nombreInt" type="text" required class="mt-1 w-full rounded-lg border border-slate-300 p-3 dark:bg-slate-800 dark:border-slate-700">
+        </div>
+        <div>
+          <label for="correoInt" class="block font-medium">Correo</label>
+          <input id="correoInt" type="email" required class="mt-1 w-full rounded-lg border border-slate-300 p-3 dark:bg-slate-800 dark:border-slate-700">
+        </div>
+        <div class="md:col-span-2">
+          <button type="submit" class="w-full md:w-auto rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800">
+            Confirmar registro
+          </button>
+        </div>
+      </form>
+      <p id="msgIntegrador" role="status" class="mt-3 font-semibold text-green-700 dark:text-green-400"></p>
+    </section>
+
+    <!-- Pie de página -->
+    <footer id="contacto" class="mt-12 border-t border-slate-300 pt-6 text-center md:text-left dark:border-slate-800">
+      <a href="mailto:daniel.mendivil05@gmail.com" class="text-blue-700 underline dark:text-blue-400">
+        daniel.mendivil05@gmail.com
+      </a>
+      <p class="mt-2 text-sm text-slate-500">© 2026 Aula Web — Práctica de Tailwind CSS 4</p>
+    </footer>
+
+    <script>
+      // Lógica Menú Móvil
+      const menuBtn = document.querySelector('#menuBtn');
+      const menu = document.querySelector('#menu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      function toggleNav(open) {
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menu.classList.toggle('hidden', !open);
+        menu.classList.toggle('flex', open);
+      }
+
+      menuBtn.addEventListener('click', () => {
+        const isOpen = menuBtn.getAttribute('aria-expanded') !== 'true';
+        toggleNav(isOpen);
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) toggleNav(false);
+        });
+      });
+
+      // Lógica Modo Oscuro
+      const temaBtn = document.querySelector('#temaBtn');
+      temaBtn.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        temaBtn.setAttribute('aria-pressed', String(dark));
+        temaBtn.textContent = dark ? 'Modo Claro' : 'Modo Oscuro';
+      });
+
+      // Formulario
+      const form = document.querySelector('#formularioIntegrador');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.querySelector('#msgIntegrador').textContent = '¡Inscripción exitosa! Te hemos enviado un correo.';
+        form.reset();
+      });
+    </script>
+  </main>
+</body>
+</html>

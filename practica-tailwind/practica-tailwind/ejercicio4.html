@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4 - Grid</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, dark *));
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900 sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+
+    <section aria-label="Catálogo" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">HTML</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Estructura de la página.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">CSS</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Presentación visual.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">JavaScript</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Interacción y lógica.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">Tailwind CSS</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Clases de utilidad para un diseño rápido.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">ESP32 & IoT</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Monitoreo de hardware y sensores en la nube.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
+        <h2 class="text-xl font-bold">Git & GitHub</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Control de versiones y repositorio remoto.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
